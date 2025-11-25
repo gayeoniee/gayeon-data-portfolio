@@ -1,357 +1,27 @@
-<!DOCTYPE html>
-<html lang="ko" data-theme="dark">
+﻿<!DOCTYPE html>
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>홍가연.data() | Sophisticated Data Science Portfolio</title>
   
-  <meta name="description" content="Data Science Student at SNU | ML/DL Specialist | Python & PySpark Expert" />
-  <meta name="keywords" content="data science, machine learning, python, pyspark, seoul national university" />
+  <meta name="description" content="홍가연 · Cookus 팀 Product-minded Data PM & Frontend" />
+  <meta name="keywords" content="홍가연, Cookus, 데이터 PM, 프론트엔드, PySpark, FastAPI, React" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 
-  <style>
-/* =========================================================
-   Refined Iconic Portfolio - Elegant & Sophisticated
-   Updated with warmer, more sophisticated color palette
-   ========================================================= */
+  <link rel="stylesheet" href="style.css"/>
 
-/* ---------- Enhanced Theme Variables ---------- */
-:root {
-  /* Dark theme - Primary palette */
-  --bg: #0a0d16;
-  --bg2: #111823; 
-  --text: #f0f4f9;
-  --muted: #b8c5d6;
-  
-  /* Refined accent colors */
-  --primary: #ff9a9e;      /* Soft coral/rose */
-  --secondary: #a29bfe;    /* Elegant lavender */
-  --accent2: #6bcf7f;      /* Fresh mint green */
-  --accent-gold: #ffeaa7;  /* Warm gold accent */
-  
-  /* Glass morphism enhancements */
-  --border: rgba(255, 255, 255, 0.12);
-  --card: rgba(255, 255, 255, 0.03);
-  /* [CHG] use variables for glass tuning */
-  --glass-blur: 12px;                 /* 24px → 12px */
-  --glass-saturation: 160%;           /* 180% → 160% */
-  --glass-alpha-dark: 0.82;           /* 최소 불투명도 보장 */
-  --glass-alpha-light: 0.85;
-  --glass-bg: rgba(14, 18, 28, var(--glass-alpha-dark));
-  --glass-border: rgba(255, 154, 158, 0.18);
-  --glass-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
-  
-  /* Enhanced gradients */
-  --grad: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent2) 100%);
-  --grad-warm: linear-gradient(45deg, var(--primary) 0%, var(--accent-gold) 100%);
-  --grad-cool: linear-gradient(135deg, var(--secondary) 0%, var(--accent2) 100%);
-  
-  /* Shadows and effects */
-  --shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
-  --shadow-hover: 0 20px 48px rgba(255, 154, 158, 0.15);
 
-  /* VSCode token colors */
-  --vs-bg: #0b1220;               /* 코드 배경 */
-  --vs-border: rgba(255,255,255,0.08);
-  --vs-kw: #c792ea;               /* keyword */
-  --vs-id: #82aaff;               /* identifier / variable */
-  --vs-prop: #89ddff;             /* object property */
-  --vs-str: #ecc48d;              /* string */
-  --vs-num: #f78c6c;              /* number */
-  --vs-fn: #7fdbca;               /* function name */
-  --vs-punc: #b8c5d6;             /* punctuation */
-  --vs-cmt: #69758a;              /* comment */
-  --vs-accent: #ff9a9e;           /* titlebar dots */
-}
 
-/* Light theme - Refined */
-:root[data-theme="light"] {
-  --bg: #fafbfc;
-  --bg2: #f1f5f9;
-  --text: #1a202c;
-  --muted: #64748b;
-  
-  --primary: #e91e63;      /* More vibrant pink */
-  --secondary: #7c3aed;    /* Rich purple */
-  --accent2: #10b981;      /* Emerald green */
-  --accent-gold: #f59e0b;  /* Amber */
-  
-  --border: rgba(26, 32, 44, 0.08);
-  --card: rgba(255, 255, 255, 0.9);
-  --glass-bg: rgba(255,255,255, var(--glass-alpha-light));
-  --glass-border: rgba(233, 30, 99, 0.12);
-  --glass-shadow: 0 12px 32px rgba(26, 32, 44, 0.08);
 
-  --vs-bg: #f7fafc;
-  --vs-border: rgba(26, 32, 44, 0.1);
-  --vs-kw: #7c3aed;
-  --vs-id: #2563eb;
-  --vs-prop: #0ea5e9;
-  --vs-str: #b45309;
-  --vs-num: #dc2626;
-  --vs-fn: #059669;
-  --vs-punc: #475569;
-  --vs-cmt: #94a3b8;
-  --vs-accent: #e11d48;
-}
-
-/* ---------- Enhanced Base Styles ---------- */
-* { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
-body {
-  font-family: 'Poppins', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.68;
-  overflow-x: hidden;
-  font-weight: 400;
-}
-a { color: inherit; text-decoration: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-a:hover { opacity: 0.85; transform: translateY(-1px); }
-.container { width: min(1000px, 92%); margin: 0 auto; }
-
-/* ---------- Enhanced Background Pattern ---------- */
-.bg-pattern {
-  position: fixed;
-  inset: 0; z-index: -1; opacity: 0.03; /* [CHG] 0.04 → 0.03 카드 대비↑ */
-  background-image: 
-    radial-gradient(circle at 25% 25%, var(--primary) 2px, transparent 2px),
-    radial-gradient(circle at 75% 75%, var(--secondary) 1.5px, transparent 1.5px),
-    radial-gradient(circle at 50% 50%, var(--accent2) 1px, transparent 1px);
-  background-size: 80px 80px, 60px 60px, 40px 40px;
-  animation: drift 60s linear infinite;
-}
-@keyframes drift { 0% { transform: translateY(0) rotate(0deg);} 100% { transform: translateY(-80px) rotate(5deg);} }
-
-/* ---------- Enhanced Glass Effect ---------- */
-.glass {
-  background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation)); /* [CHG] */
-  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow);
-  border-radius: 16px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  animation: fadeInUp 0.8s ease-out;
-  position: relative;                /* [CHG] */
-  will-change: transform, opacity, backdrop-filter; /* [CHG] 합성 힌트 */
-  transform: translateZ(0);          /* [CHG] GPU 합성 유도 */
-}
-.glass::after {                        /* [CHG] 내부 오버레이로 대비/안정화 */
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  border-radius: inherit;
-  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(0,0,0,0.08));
-  opacity: 0.6;
-}
-.glass:hover { transform: translateY(-2px); /* [CHG] -4 → -2 */ box-shadow: var(--shadow-hover); border-color: rgba(255, 154, 158, 0.25); }
-
-/* 테마 전환 순간 안정화 */
-html.theming .glass { transition: none !important; opacity: 0.999; } /* [CHG] 강제 리페인트 유도 */
-
-/* ---------- Header ---------- */
-.header { position: fixed; left: 0; right: 0; top: 20px; z-index: 1000; }
-.header__row { display: flex; align-items: center; justify-content: space-between; padding: 12px 18px; }
-.brand {
-  font-weight: 800; font-size: 1.15rem; background: var(--grad-warm);
-  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.02em;
-}
-.nav { display: flex; gap: 24px; }
-.nav a { color: var(--muted); font-weight: 600; font-size: 0.95rem; position: relative; padding: 8px 0; }
-.nav a:hover { color: var(--primary); }
-.nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--grad-warm); transition: width 0.3s ease; }
-.nav a:hover::after { width: 100%; }
-
-/* ---------- Theme Toggle ---------- */
-.theme-toggle {
-  position: fixed; top: 22px; right: 24px; z-index: 1001; width: 48px; height: 48px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center; background: var(--glass-bg); color: var(--text);
-  border: 1px solid var(--glass-border); box-shadow: var(--glass-shadow); cursor: pointer; backdrop-filter: blur(var(--glass-blur));
-  font-size: 1.2rem; transition: all 0.3s ease;
-}
-.theme-toggle:hover { transform: scale(1.1) rotate(10deg); box-shadow: var(--shadow-hover); }
-
-/* ---------- Sections ---------- */
-.section { padding: 120px 0; scroll-margin-top: 110px; }
-.section--alt { background: var(--bg2); position: relative; }
-.section--alt::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--grad); opacity: 0.3; }
-.sec__head { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.5rem; }
-.sec__head h2 {
-  font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; margin: 0; background: var(--grad);
-  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-}
-.sec__head .sub { color: var(--muted); font-size: 1rem; font-weight: 500; }
-
-/* ---------- Hero ---------- */
-.hero { min-height: 100vh; display: flex; align-items: center; position: relative; background: radial-gradient(ellipse at center, rgba(255, 154, 158, 0.06) 0%, transparent 70%); }
-.hero__grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 2.5rem; align-items: start; }
-.hero__title {
-  font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 900; margin: 0 0 0.8rem; line-height: 1.15; background: var(--grad);
-  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.02em;
-}
-.hero__subtitle { color: var(--muted); margin: 0.4rem 0 0.6rem; font-size: 1.1rem; font-weight: 500; }
-.hero__desc { color: var(--muted); margin: 0 0 1.5rem; max-width: 60ch; font-size: 1.05rem; line-height: 1.7; }
-.hero__cta { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-/* ---------- Buttons ---------- */
-.btn {
-  padding: 1rem 1.8rem; border-radius: 14px; border: 1px solid var(--border); background: var(--card); color: var(--text);
-  font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  text-decoration: none; display: inline-flex; align-items: center; justify-content: center;
-}
-.btn--primary { background: var(--grad-warm); color: #1a202c; border: none; box-shadow: 0 8px 24px rgba(255, 154, 158, 0.25); }
-.btn--primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(255, 154, 158, 0.35); }
-.btn--ghost { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
-.btn--ghost:hover { background: var(--primary); color: #1a202c; transform: translateY(-2px); }
-
-/* ---------- Hero Side ---------- */
-.hero__side { display: grid; gap: 1.5rem; }
-
-.code {
-  background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 1.2rem 1.4rem;
-  font-family: 'JetBrains Mono', Consolas, monospace; font-size: 0.9rem; color: var(--muted); white-space: pre-wrap; line-height: 1.6; position: relative;
-}
-.code::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--grad); opacity: 0.5; }
-
-/* VS Code 느낌의 코드 카드 */
-.code.vscode {  /* [CHG] VS Code 스타일 */
-  background: var(--vs-bg);
-  border: 1px solid var(--vs-border);
-  border-radius: 14px;
-  padding: 0;
-  overflow: hidden;
-  font-family: 'JetBrains Mono', Consolas, monospace;
-  color: var(--text);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.25);
-}
-.code.vscode .titlebar {
-  display: flex; align-items: center; gap: 8px; padding: 10px 12px;
-  border-bottom: 1px solid var(--vs-border);
-  background: linear-gradient(180deg, rgba(255,255,255,0.04), transparent);
-}
-.code.vscode .dot {
-  width: 10px; height: 10px; border-radius: 50%;
-  background: var(--vs-accent);
-  box-shadow: 16px 0 0 #f6d365, 32px 0 0 #6bcf7f;
-}
-.code.vscode pre { margin: 0; }
-.code.vscode code { display: block; padding: 14px 16px 16px 16px; line-height: 1.7; font-size: 0.92rem; color: var(--text); white-space: pre; overflow-x: auto; }
-.hl .k{ color: var(--vs-kw); font-weight: 600; } .hl .id{ color: var(--vs-id);} .hl .prop{ color: var(--vs-prop);} .hl .str{ color: var(--vs-str);} .hl .num{ color: var(--vs-num);} .hl .fn{ color: var(--vs-fn);} .hl .punc{ color: var(--vs-punc);} .hl .cmt{ color: var(--vs-cmt); font-style: italic; }
-
-/* ---------- About ---------- */
-.about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-.about-card { padding: 1.8rem; }
-.about-card h3 { font-size: 1.3rem; font-weight: 800; margin: 0 0 1rem; color: var(--primary); }
-.tick { margin: 1rem 0 0; padding-left: 0; list-style: none; }
-.tick li { margin: 0.6rem 0; padding-left: 1.5rem; position: relative; line-height: 1.6; }
-.tick li::before { content: '✓'; position: absolute; left: 0; color: var(--accent2); font-weight: 800; }
-
-/* ---------- Experience ---------- */
-.xp__list { display: grid; gap: 1.2rem; }
-.xp { padding: 1.8rem; }
-.xp__time { color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 0.86rem; font-weight: 600; }
-.xp__role { font-weight: 800; margin: 0.4rem 0 0.3rem; font-size: 1.1rem; color: var(--text); }
-.xp__desc { color: var(--muted); line-height: 1.6; }
-
-/* ---------- Skills ---------- */
-.skills__wall { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1rem; }
-.pill { background: var(--bg2); border: 1px solid var(--border); border-radius: 999px; padding: 0.6rem 1.2rem; font-weight: 700; font-size: 0.9rem; transition: all 0.3s ease; cursor: default; }
-.pill:hover { border-color: var(--primary); background: rgba(255, 154, 158, 0.1); transform: translateY(-1px); }
-
-/* ---------- Projects ---------- */
-.filter { display: flex; gap: 0.8rem; margin: 1rem 0 2rem; flex-wrap: wrap; }
-.chip { border: 1px solid var(--border); background: var(--card); padding: 0.6rem 1.2rem; border-radius: 999px;
-  cursor: pointer; font-weight: 700; font-size: 0.9rem; transition: all 0.3s ease; }
-.chip:hover { border-color: var(--primary); transform: translateY(-1px); }
-.chip.active { background: var(--grad-warm); color: #1a202c; border: none; box-shadow: 0 4px 16px rgba(255, 154, 158, 0.2); }
-.proj__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 1.5rem; }
-
-.snippet, .proj-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-.snippet:hover, .proj-card:hover { transform: translateY(-2px); } /* [CHG] 이동량 축소 */
-.snippet { padding: 0; cursor: pointer; overflow: hidden; }
-.snippet__body { padding: 1.6rem; }
-.snippet__title, .proj-title { margin: 0.2rem 0 0.8rem; font-weight: 800; font-size: 1.2rem; color: var(--text); }
-.one { color: var(--muted); margin: 0.4rem 0 0.8rem; line-height: 1.6; }
-.snippet__tags, .proj-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1rem 0 1.2rem; }
-.tag { background: var(--bg2); border: 1px solid var(--border); border-radius: 999px; padding: 0.4rem 0.8rem; font-weight: 700; font-size: 0.8rem; color: var(--text); transition: all 0.3s ease; }
-.tag:hover { border-color: var(--primary); background: rgba(255, 154, 158, 0.1); }
-.snippet__actions, .proj-actions { display: flex; gap: 0.8rem; margin-top: 0.5rem; }
-.link { color: var(--primary); font-weight: 600; text-decoration: none; cursor: pointer; transition: all 0.3s ease; }
-.link:hover { color: var(--accent-gold); transform: translateY(-1px); }
-.details { display: none; margin-top: 0; color: var(--muted); padding: 1.2rem 1.6rem 1.6rem; border-top: 1px solid var(--border); }
-.details.open { display: block; }
-.details ul { margin: 0; padding-left: 1.2rem; }
-.details li { margin: 0.4rem 0; line-height: 1.6; }
-
-/* ---------- Education ---------- */
-.edu__list { display: grid; gap: 1.2rem; }
-.edu { padding: 1.8rem; }
-.edu__time { color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 0.86rem; font-weight: 600; }
-.edu__title { font-weight: 800; margin: 0.4rem 0 0.3rem; font-size: 1.1rem; }
-.edu__desc { color: var(--muted); line-height: 1.6; }
-
-/* ---------- Contact ---------- */
-.contact-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 1.5rem; align-items: start; }
-.form { padding: 1.8rem; }
-.form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
-input, textarea {
-  width: 100%; border: 1px solid var(--border); border-radius: 12px; padding: 1rem; background: var(--bg2); color: var(--text);
-  font-family: inherit; transition: all 0.3s ease;
-}
-input:focus, textarea:focus { outline: none; border-color: var(--primary); background: rgba(255, 154, 158, 0.05); }
-textarea { margin-bottom: 1.2rem; resize: vertical; min-height: 120px; }
-.contact-cards { display: grid; gap: 1rem; }
-.contact-card { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 1.5rem; text-decoration: none; }
-.contact-card span { color: var(--muted); font-weight: 500; }
-.contact-card strong { color: var(--primary); font-weight: 700; }
-
-/* ---------- Footer ---------- */
-.footer { padding: 60px 0; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
-
-/* ---------- Responsive ---------- */
-@media (max-width: 1024px) {
-  .hero__grid { grid-template-columns: 1fr; gap: 2rem; }
-  .about-grid { grid-template-columns: 1fr; }
-  .proj__grid { grid-template-columns: 1fr; }
-  .contact-grid { grid-template-columns: 1fr; }
-}
-@media (max-width: 768px) {
-  .section { padding: 80px 0; }
-  .hero { min-height: 90vh; }
-  .nav { gap: 16px; }
-  .nav a { font-size: 0.9rem; }
-  .hero__cta { flex-direction: column; align-items: flex-start; }
-  .btn { min-width: 160px; }
-  .form__row { grid-template-columns: 1fr; }
-}
-
-/* ---------- Animations & Focus ---------- */
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px);} to { opacity: 1; transform: translateY(0);} }
-button:focus, a:focus, .btn:focus { outline: 2px solid var(--primary); outline-offset: 2px; }
-
-/* ============================
-   [CHG] 맥 창 느낌 상단바 & 앱 프레임
-   ============================ */
-.mac-card .titlebar { display:flex; align-items:center; gap:8px; padding:10px 12px; border-bottom:1px solid var(--border); background: linear-gradient(180deg, rgba(255,255,255,0.04), transparent); }
-.mac-card .dots { width:10px; height:10px; border-radius:50%; background:#ff5f56; box-shadow: 16px 0 0 #ffbd2e, 32px 0 0 #27c93f; }
-
-.app-frame { width: 320px; max-width: 100%; border-radius: 28px; border: 1px solid var(--border); background: var(--bg2); box-shadow: var(--shadow); padding: 14px; position: relative; }
-.app-notch { width: 120px; height: 22px; border-radius: 12px; background: rgba(0,0,0,0.3); margin: 0 auto 10px; }
-.app-screen { border-radius: 16px; border: 1px solid var(--border); background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.08)); min-height: 220px; padding: 12px; }
-
-  </style>
 </head>
 <body>
   <!-- Enhanced animated background pattern -->
   <div class="bg-pattern" aria-hidden="true"></div>
-
-  <!-- Enhanced theme toggle -->
-  <button class="theme-toggle" aria-label="Toggle theme">
-    <span id="themeIcon">☀️</span>
-  </button>
 
   <!-- ===== Header / Navigation ===== -->
   <header class="header">
@@ -361,8 +31,9 @@ button:focus, a:focus, .btn:focus { outline: 2px solid var(--primary); outline-o
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
+        <a href="#stack">Tech</a>
+        <a href="#cookus">Cookus</a>
+        <a href="#reports">Reports</a>
         <a href="#education">Education</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -374,26 +45,26 @@ button:focus, a:focus, .btn:focus { outline: 2px solid var(--primary); outline-o
     <div class="container hero__grid">
       <div class="hero__copy">
         <h1 class="hero__title">데이터로 문제를 구조화하고,<br/>실험으로 검증합니다.</h1>
-        <p class="hero__subtitle">SCU · LG U+ WhyNot Camp 7기 · Data Science Student</p>
-        <p class="hero__desc">Python · PySpark · SQL · scikit-learn · XGBoost · FastAPI · Streamlit. <strong>재현성</strong>과 <strong>실험 로그</strong>로 설득 가능한 결과를 만듭니다.</p>
+        <p class="hero__subtitle">Cookus · Product-minded Data PM & Frontend</p>
+        <p class="hero__desc">아이디어를 정리하고 지표를 정의한 뒤, 데이터를 서비스로 연결하는 PM/프론트엔드입니다. Python · AWS · FastAPI · React · GitHub Actions로 Cookus 전체 여정을 완주했습니다.</p>
         <div class="hero__cta">
-          <a class="btn btn--primary" href="#projects">프로젝트 보기</a>
-          <a class="btn" href="#contact">연락하기</a>
-          <a class="btn btn--ghost" href="#" target="_blank" rel="noreferrer">Resume</a>
+          <a class="btn btn--primary" href="#cookus">Cookus 살펴보기</a>
+          <a class="btn" href="#stack">기술 스택</a>
+          <span class="btn btn--ghost disabled" title="Resume는 준비 중입니다.">Resume 준비 중</span>
         </div>
       </div>
 
-      <!-- [CHG] Hero Side: VS Code-like code box only (KPI/app frames removed) -->
       <div class="hero__side">
         <div class="code vscode">
           <div class="titlebar"><span class="dot"></span></div>
           <pre><code class="hl"><span class="k">const</span> <span class="id">gayeon</span> <span class="punc">=</span> <span class="punc">{</span>
-  <span class="prop">role</span><span class="punc">:</span> <span class="str">'Data Science Student'</span><span class="punc">,</span>
-  <span class="prop">stack</span><span class="punc">:</span> <span class="punc">[</span><span class="str">'Python'</span><span class="punc">,</span> <span class="str">'PySpark'</span><span class="punc">,</span> <span class="str">'SQL'</span><span class="punc">,</span> <span class="str">'sklearn'</span><span class="punc">,</span>
-          <span class="str">'XGBoost'</span><span class="punc">,</span> <span class="str">'FastAPI'</span><span class="punc">,</span> <span class="str">'Streamlit'</span><span class="punc">,</span> <span class="str">'Docker'</span><span class="punc">]</span><span class="punc">,</span>
-  <span class="prop">principles</span><span class="punc">:</span> <span class="punc">[</span><span class="str">'KPI-first'</span><span class="punc">,</span> <span class="str">'Reproducibility'</span><span class="punc">,</span>
-               <span class="str">'.env/CONFIG'</span><span class="punc">,</span> <span class="str">'A/B &amp; CV'</span><span class="punc">]</span><span class="punc">,</span>
-  <span class="fn">hireable</span><span class="punc">()</span> <span class="punc">{</span> <span class="k">return</span> <span class="k">true</span><span class="punc">;</span> <span class="punc">}</span>
+  <span class="prop">role</span><span class="punc">:</span> <span class="str">'Data PM & Frontend'</span><span class="punc">,</span>
+  <span class="prop">stack</span><span class="punc">:</span> <span class="punc">[</span><span class="str">'Python'</span><span class="punc">,</span> <span class="str">'AWS'</span><span class="punc">,</span> <span class="str">'FastAPI'</span><span class="punc">,</span> <span class="str">'Docker'</span><span class="punc">,</span>
+          <span class="str">'React'</span><span class="punc">,</span> <span class="str">'TypeScript'</span><span class="punc">,</span> <span class="str">'GitHub Actions'</span><span class="punc">]</span><span class="punc">,</span>
+  <span class="prop">projects</span><span class="punc">:</span> <span class="punc">[</span><span class="str">'Cookus'</span><span class="punc">,</span> <span class="str">'analysis-reports'</span><span class="punc">]</span><span class="punc">,</span>
+  <span class="prop">principles</span><span class="punc">:</span> <span class="punc">[</span><span class="str">'문제 재정의'</span><span class="punc">,</span> <span class="str">'지표 우선'</span><span class="punc">,</span>
+               <span class="str">'실험 로그'</span><span class="punc">]</span><span class="punc">,</span>
+  <span class="fn">story</span><span class="punc">()</span> <span class="punc">{</span> <span class="k">return</span> <span class="str">'Idea → Metric → Product'</span><span class="punc">;</span> <span class="punc">}</span>
 <span class="punc">}</span><span class="punc">;</span>  </code></pre>
         </div>
       </div>
@@ -404,30 +75,39 @@ button:focus, a:focus, .btn:focus { outline: 2px solid var(--primary); outline-o
   <section id="about" class="section">
     <div class="container">
       <div class="sec__head">
-        <h2>about.init()</h2><p class="sub">코드로 설명하는 나</p>
+        <h2>about.init()</h2><p class="sub">문제를 정리하고, 데이터를 제품으로 잇습니다.</p>
       </div>
 
       <div class="about-grid">
-        <article class="about-card glass">
-          <h3>Intro</h3>
-          <p>데이터 분석가/사이언티스트를 목표로 하는 <strong>홍가연</strong>입니다. 문제를 구조화 → 파이프라인/분석/모델 → 대시보드/서비스로 연결해 <strong>사용자 가치</strong>를 만듭니다.</p>
+        <article class="about-card glass mac-card">
+          <div class="titlebar"><span class="dots"></span></div>
+          <div class="mac-card__body">
+            <h3>Intro</h3>
+            <p>Cookus에서 PM · Frontend · 데이터 워크플로를 동시에 운영하고 있는 <strong>홍가연</strong>입니다. 문제 재정의와 실험 로그를 남기고, 사용자가 느낄 수 있는 경험으로 마무리하는 것을 중요하게 생각합니다.</p>
+          </div>
         </article>
-        <article class="about-card glass">
-          <h3>Focus</h3>
-          <ul class="tick">
-            <li>Python · Pandas · NumPy · scikit-learn · XGBoost</li>
-            <li>PySpark(EDA/조인/집계/MLlib) · SQL</li>
-            <li>FastAPI · Streamlit · Docker · Linux(WSL2)</li>
-            <li>RAG(문서 청킹/임베딩/Meilisearch·Chroma)</li>
-          </ul>
+        <article class="about-card glass mac-card">
+          <div class="titlebar"><span class="dots"></span></div>
+          <div class="mac-card__body">
+            <h3>Focus</h3>
+            <ul class="tick">
+              <li>아이디어 → 지표 → 실험 → 제품 스토리 설계</li>
+              <li>Python · PySpark · SQL · scikit-learn · XGBoost</li>
+              <li>FastAPI · Streamlit · React · TypeScript</li>
+              <li>GitHub Actions · Docker · AWS EC2/ECR</li>
+            </ul>
+          </div>
         </article>
-        <article class="about-card glass">
-          <h3>Principles</h3>
-          <ul class="tick">
-            <li>문제 재정의 → 지표·데이터 설계 우선</li>
-            <li>Baseline → 교차검증 → 비교 가능한 실험 로그</li>
-            <li><strong>재현성</strong>: .env/CONFIG, 스크립트화, README</li>
-          </ul>
+        <article class="about-card glass mac-card">
+          <div class="titlebar"><span class="dots"></span></div>
+          <div class="mac-card__body">
+            <h3>Principles</h3>
+            <ul class="tick">
+              <li>문제 재정의와 가설 문서화</li>
+              <li>재현 가능한 코드/데이터(.env, 스크립트, README)</li>
+              <li>실험 로그와 사용자 피드백을 한 곳에 축적</li>
+            </ul>
+          </div>
         </article>
       </div>
     </div>
@@ -437,138 +117,301 @@ button:focus, a:focus, .btn:focus { outline: 2px solid var(--primary); outline-o
   <section id="experience" class="section section--alt">
     <div class="container">
       <div class="sec__head">
-        <h2>Experience</h2><p class="sub">Recent activities & leadership</p>
+        <h2>Experience</h2><p class="sub">최근 리드한 프로젝트와 리더십</p>
       </div>
       <div class="xp__list">
         <article class="xp glass">
           <div class="xp__time">(2025 - Now)</div>
-          <div class="xp__role">Team Lead · Data Projects</div>
-          <div class="xp__desc">헬스케어 추천/리포트, PySpark EDA, 회귀/분류 베이스라인</div>
+          <div class="xp__role">Cookus · PM & Data Frontend</div>
+          <div class="xp__desc">Cookus Growth Lab에서 추천/실험 인프라, PySpark EDA, 회원/셰프 데이터 파이프라인을 리드했습니다.</div>
         </article>
         <article class="xp glass">
           <div class="xp__time">(2025)</div>
           <div class="xp__role">LG U+ WhyNot Camp 7기</div>
-          <div class="xp__desc">ML/Cloud 로드맵, 프로젝트 팀 운영, 코드 표준화</div>
+          <div class="xp__desc">ML/Cloud 트랙 온보딩과 협업 프로젝트 운영, 코드 자동화 파이프라인 구축을 담당했습니다.</div>
         </article>
         <article class="xp glass">
           <div class="xp__time">(2024 - Now)</div>
           <div class="xp__role">SCU Big Data InfoSec · President</div>
-          <div class="xp__desc">학회 운영·커리큘럼 기획, 데이터 해커톤 준비</div>
+          <div class="xp__desc">동아리 운영과 커리큘럼 설계, 데이터 사이언스 세션을 진행했습니다.</div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- ===== Skills ===== -->
-  <section id="skills" class="section">
+  <!-- ===== Tech Stack ===== -->
+  <section id="stack" class="section">
     <div class="container">
       <div class="sec__head">
-        <h2>stack.map()</h2><p class="sub">Languages · ML/DS · Data Eng · Web/Infra</p>
+        <h2>tech.stack()</h2><p class="sub">Languages · ML/DS · Data Eng · Frontend/Infra</p>
       </div>
-
-      <div class="skills__wall">
-        <span class="pill">Python</span><span class="pill">SQL</span><span class="pill">PySpark</span>
-        <span class="pill">Pandas</span><span class="pill">NumPy</span><span class="pill">scikit-learn</span>
-        <span class="pill">XGBoost</span><span class="pill">Matplotlib</span>
-        <span class="pill">FastAPI</span><span class="pill">Streamlit</span>
-        <span class="pill">Docker</span><span class="pill">Linux(WSL2)</span>
-        <span class="pill">Meilisearch</span><span class="pill">Chroma</span>
+      <div class="stack-layout">
+        <article class="stack-card glass mac-card">
+          <div class="titlebar"><span class="dots"></span></div>
+          <div class="mac-card__body">
+            <h3>Overview</h3>
+            <p class="subtext">데이터와 프로덕트의 경계를 직접 운영합니다. Cookus에서 PM · Frontend · 데이터 파이프라인을 동시에 리드하며 쌓은 기술들입니다.</p>
+            <div class="skills__wall">
+              <span class="pill">Python</span><span class="pill">SQL</span><span class="pill">PySpark</span>
+              <span class="pill">Pandas</span><span class="pill">NumPy</span><span class="pill">scikit-learn</span>
+              <span class="pill">XGBoost</span><span class="pill">FastAPI</span><span class="pill">Streamlit</span>
+              <span class="pill">React</span><span class="pill">TypeScript</span><span class="pill">GitHub Actions</span>
+              <span class="pill">Docker</span><span class="pill">AWS EC2/ECR</span>
+            </div>
+          </div>
+        </article>
+        <div class="stack-panels">
+          <article class="stack-panel glass mac-card">
+            <div class="titlebar"><span class="dots"></span></div>
+            <div class="mac-card__body">
+              <h3>Product &amp; Frontend</h3>
+              <p>React · TypeScript · Vite · Streamlit · Zustand · Tailwind</p>
+              <ul>
+                <li>사용자 여정/화면 정의, Figma 프로토타입 설계</li>
+                <li>대시보드/서비스 UI 구축, 실시간 상태 동기화</li>
+              </ul>
+            </div>
+          </article>
+          <article class="stack-panel glass mac-card">
+            <div class="titlebar"><span class="dots"></span></div>
+            <div class="mac-card__body">
+              <h3>Backend &amp; Data</h3>
+              <p>FastAPI · Uvicorn · MariaDB · PySpark · GPT-4o-mini</p>
+              <ul>
+                <li>추천/난이도 API, 재료·레시피 ETL, Prompt 기반 조리 가이드</li>
+                <li>Feature Store와 지표 쿼리 자동화</li>
+              </ul>
+            </div>
+          </article>
+          <article class="stack-panel glass mac-card">
+            <div class="titlebar"><span class="dots"></span></div>
+            <div class="mac-card__body">
+              <h3>Infra &amp; Delivery</h3>
+              <p>AWS EC2 · ECR · Docker · GitHub Actions · Nginx</p>
+              <ul>
+                <li>Frontend/Backend 분리 EC2 + Docker 배포 설계</li>
+                <li>CI/CD 파이프라인과 품질 게이트 운영</li>
+              </ul>
+            </div>
+          </article>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== Projects ===== -->
-  <section id="projects" class="section">
+  <!-- ===== Cookus Portfolio ===== -->
+  <section id="cookus" class="section">
     <div class="container">
       <div class="sec__head">
-        <h2>projects.build()</h2><p class="sub">헬스케어 + 분석보고서 + 머신러닝</p>
+        <h2>cookus.system()</h2><p class="sub">PM · Frontend · 데이터 파이프라인을 한 번에</p>
       </div>
 
-      <div class="filter">
-        <button class="chip active" data-filter="all">All</button>
-        <button class="chip" data-filter="healthcare">Healthcare</button>
-        <button class="chip" data-filter="ml">ML</button>
-        <button class="chip" data-filter="report">Report</button>
-      </div>
-
-      <div class="proj__grid">
-        <!-- [CHG] Healthcare Project (현재 진행) -->
-        <article class="snippet glass mac-card" data-tags="healthcare ml web" data-href="https://github.com/gayeoniee/healthcare-reco">
+      <div class="cookus-grid">
+        <article class="cookus-card glass mac-card">
           <div class="titlebar"><span class="dots"></span></div>
-          <div class="snippet__body">
-            <h3 class="snippet__title">헬스케어 추천·리포트 시스템</h3>
-            <p class="one"><strong>일주일 식단 추천 + 일정변동 ±1일 재추천</strong>, 영양제 추천, 주간/월간 리포트, 캘린더 연동(구글)</p>
-            <div class="snippet__tags">
-              <span class="tag">FastAPI</span><span class="tag">Streamlit</span><span class="tag">SQLite→MySQL</span>
-              <span class="tag">RAG(Optional)</span><span class="tag">Vector Search</span>
+          <div class="mac-card__body">
+            <h3>프로젝트 개요</h3>
+            <dl class="meta-list">
+              <div><dt>서비스 목적</dt><dd>냉장고에 이미 있는 재료를 활용해 “오늘 뭐 먹지?” 고민을 줄여주는 맞춤 레시피 추천</dd></div>
+              <div><dt>핵심 컨셉</dt><dd>재료 기반 추천 → 요리 기록 → 영양 루틴/뱃지로 이어지는 요리 습관 형성</dd></div>
+              <div><dt>타깃</dt><dd>자취생, 직장인 등 메뉴 결정이 어려운 1인 가구</dd></div>
+            </dl>
+            <div class="feature-group">
+              <h4>주요 기능</h4>
+              <ul>
+                <li><strong>냉장고 재료 관리</strong>: 재료 등록/수정/삭제, 검색·수동 입력</li>
+                <li><strong>맞춤 레시피 추천</strong>: 재료+난이도 기반 추천, LLM 조리 가이드, 부족 재료 대체 제안</li>
+                <li><strong>식단 캘린더 &amp; 타이머</strong>: 선택한 레시피 기록, 조리 타이머, 기록 기반 통계</li>
+                <li><strong>영양 루틴</strong>: 영양제 등록/체크, “오늘의 루틴 완료” 피드백</li>
+                <li><strong>대시보드 &amp; 뱃지</strong>: 기간별 요리/카테고리 시각화, 습관 기반 뱃지</li>
+              </ul>
             </div>
-            <div class="snippet__actions">
-              <a class="link" href="https://github.com/gayeoniee/healthcare-reco" target="_blank" rel="noreferrer">GitHub</a>
-              <button class="link view-more" type="button">자세히 보기</button>
+            <div class="feature-group">
+              <h4>Repository</h4>
+              <a class="link" href="https://github.com/orgs/geonjeonji-labs/repositories" target="_blank" rel="noreferrer">geonjeonji-labs GitHub · Cookus Repo Collection</a>
             </div>
           </div>
-          <div class="details">
-            <ul>
-              <li><strong>추천</strong>: 목표/섭취이력 기반 7일 플랜, 일정변경 시 전·당·익일 재계산</li>
-              <li><strong>리포트</strong>: 달성률, 시간대별 섭취, 단백질 분석, 요약 텍스트</li>
-              <li><strong>영양제</strong>: 부족 영양소 → 제품 후보 매핑</li>
-              <li><strong>인프라</strong>: AWS 프리티어 + Streamlit + FastAPI</li>
+        </article>
+
+        <article class="cookus-card glass mac-card">
+          <div class="titlebar"><span class="dots"></span></div>
+          <div class="mac-card__body">
+            <h3>Cookus Architecture</h3>
+            <figure class="arch-figure">
+              <img src="cookus-architecture.png" alt="Cookus Architecture Diagram" loading="lazy" />
+              <figcaption>Frontend/Backend 분리 배포 구조</figcaption>
+            </figure>
+            <p>GitHub Actions가 Frontend/Backend/Dashboard 이미지를 빌드하여 ECR에 저장하고, 각 EC2 인스턴스가 이미지를 Pull 해 Docker 컨테이너로 서비스합니다.</p>
+            <div class="arch-grid">
+              <div class="arch-cloud">
+                <h4>AWS Cloud</h4>
+                <p>ECR + GitHub Actions 기반 CI/CD, 태그별 자동 배포</p>
+              </div>
+              <div class="arch-plane">
+                <div class="arch-node">
+                  <h5>Front-end EC2</h5>
+                  <p>React 앱과 Streamlit 대시보드를 컨테이너 단위로 분리, Elastic IP로 노출</p>
+                </div>
+                <div class="arch-node">
+                  <h5>Back-end EC2</h5>
+                  <p>FastAPI/Uvicorn 컨테이너가 MariaDB · GPT-4o-mini · S3와 통신</p>
+                </div>
+              </div>
+              <div class="arch-external">
+                <div>
+                  <h5>데이터 계층</h5>
+                  <p>MariaDB + S3 Feature Store, Streamlit Ops 대시보드</p>
+                </div>
+                <div>
+                  <h5>지능 계층</h5>
+                  <p>GPT-4o-mini로 조리 가이드 요약/추론 및 부족 재료 대체 제안</p>
+                </div>
+              </div>
+            </div>
+            <p class="note">아키텍처 정의 · React/Streamlit UI · GitHub Actions CI/CD 자동화를 직접 리드했습니다.</p>
+          </div>
+        </article>
+
+        <article class="cookus-card glass mac-card">
+          <div class="titlebar"><span class="dots"></span></div>
+          <div class="mac-card__body">
+            <h3>기술 스택 &amp; 역할</h3>
+            <div class="stack-grid">
+              <div>
+                <h4>Frontend</h4>
+                <p>React · TypeScript · Vite · Streamlit</p>
+              </div>
+              <div>
+                <h4>Backend</h4>
+                <p>Python · FastAPI · Uvicorn</p>
+              </div>
+              <div>
+                <h4>Infra &amp; Data</h4>
+                <p>MariaDB · AWS EC2 · ECR · Docker · GitHub Actions · Nginx</p>
+              </div>
+            </div>
+            <ul class="tick">
+              <li>PM으로 일정·WBS·요구사항 정의 리드</li>
+              <li>프론트/대시보드 UX 및 프로토타입, 고객 여정 설계</li>
+              <li>CI/CD 파이프라인과 ECR 이미지 관리, 자동 배포</li>
             </ul>
           </div>
         </article>
 
-        <!-- [CHG] Analysis Reports -->
-        <article class="snippet glass mac-card" data-tags="report" data-href="https://github.com/gayeoniee/analysis-reports">
+        <article class="cookus-card glass mac-card wide-card">
           <div class="titlebar"><span class="dots"></span></div>
-          <div class="snippet__body">
-            <h3 class="snippet__title">분석 보고서 모음</h3>
-            <p class="one">EDA · 지표 정의 · 시각화 · 해석을 <strong>재현 가능한 노트북</strong>과 함께 제공</p>
-            <div class="snippet__tags">
-              <span class="tag">Pandas</span><span class="tag">PySpark</span><span class="tag">Matplotlib</span>
-              <span class="tag">Reproducibility</span>
+          <div class="mac-card__body">
+            <h3>요구사항 정의서</h3>
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr><th>번호</th><th>기능</th><th>상세 요구사항</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>1</td><td>회원 관리</td><td>이메일·비밀번호·성별 가입, 정보 수정/탈퇴</td></tr>
+                  <tr><td>2</td><td>재료 관리</td><td>목록 조회, 추가/삭제, 검색/수동 입력</td></tr>
+                  <tr><td>3</td><td>레시피 추천</td><td>재료+난이도 기반 추천, LLM 가이드, 기본 재료 보강</td></tr>
+                  <tr><td>4</td><td>난이도 선택</td><td>상/하 레벨, 예상 조리시간/필요 재료 표시</td></tr>
+                  <tr><td>5</td><td>캘린더 연동</td><td>완료 레시피 기록, 실천 여부 체크</td></tr>
+                  <tr><td>6</td><td>조리 편의</td><td>조리 타이머, YouTube Shorts 연동</td></tr>
+                  <tr><td>7</td><td>대시보드</td><td>목표 달성률, 재료 카테고리 시각화</td></tr>
+                  <tr><td>8</td><td>대회 기능</td><td>대회/게시물 CRUD, 좋아요</td></tr>
+                  <tr><td>9</td><td>영양 루틴</td><td>영양제 CRUD, 섭취 기록, 선호 기반 추천</td></tr>
+                </tbody>
+              </table>
             </div>
-            <div class="snippet__actions">
-              <a class="link" href="https://github.com/gayeoniee/analysis-reports" target="_blank" rel="noreferrer">GitHub</a>
-              <button class="link view-more" type="button">자세히 보기</button>
-            </div>
-          </div>
-          <div class="details">
-            <ul>
-              <li>데이터 품질 점검 → 결측/이상치 처리 → 변수 엔지니어링</li>
-              <li>핵심 지표 정의 및 집계표(표준 템플릿)</li>
-              <li>히스토그램/박스플롯/히트맵 등 시각화 규약</li>
-            </ul>
           </div>
         </article>
 
-        <!-- [CHG] Machine Learning Baselines -->
-        <article class="snippet glass mac-card" data-tags="ml" data-href="https://github.com/gayeoniee/ml-baselines">
+        <article class="cookus-card glass mac-card">
           <div class="titlebar"><span class="dots"></span></div>
-          <div class="snippet__body">
-            <h3 class="snippet__title">머신러닝 베이스라인</h3>
-            <p class="one">회귀/분류를 위한 <strong>Baseline → CV → 튜닝</strong> 레퍼런스. 실험 로그/시드 고정 포함</p>
-            <div class="snippet__tags">
-              <span class="tag">scikit-learn</span><span class="tag">XGBoost</span><span class="tag">HistGB</span>
-              <span class="tag">MLflow(옵션)</span>
-            </div>
-            <div class="snippet__actions">
-              <a class="link" href="https://github.com/gayeoniee/ml-baselines" target="_blank" rel="noreferrer">GitHub</a>
-              <button class="link view-more" type="button">자세히 보기</button>
+          <div class="mac-card__body">
+            <h3>비기능 요구사항</h3>
+            <div class="table-scroll">
+              <table>
+                <thead><tr><th>구분</th><th>항목</th><th>요구사항</th></tr></thead>
+                <tbody>
+                  <tr><td>성능</td><td>응답 시간</td><td>추천 결과 평균 3초 이내</td></tr>
+                  <tr><td>보안</td><td>데이터 보안</td><td>개인정보·레시피 데이터 암호화, API Key .env 관리</td></tr>
+                  <tr><td>확장성</td><td>외부 연동</td><td>쇼핑 API, 영수증 OCR, 외부 레시피 데이터 연동 대비</td></tr>
+                </tbody>
+              </table>
             </div>
           </div>
-          <div class="details">
-            <ul>
-              <li>데이터 분리, 스케일링, 누수 방지, 파이프라인 구성</li>
-              <li>StratifiedKFold/TimeSeriesSplit CV, 점수/분산 보고</li>
-              <li>학습곡선/잔차 플롯(옵션), 하이퍼파라미터 템플릿</li>
-            </ul>
-            <pre class="code"><code># pseudo: 분류 앙상블 Top-3
-P = 0.30*proba_xgb + 0.70*proba_rf
-order = np.argsort(P, axis=1)[:, ::-1]
-top3  = order[:, :3]</code></pre>
+        </article>
+
+        <article class="cookus-card glass mac-card wide-card">
+          <div class="titlebar"><span class="dots"></span></div>
+          <div class="mac-card__body">
+            <h3>WBS &amp; Timeline</h3>
+            <div class="table-scroll">
+              <table>
+                <thead><tr><th>단계</th><th>기간</th><th>주요 목표</th></tr></thead>
+                <tbody>
+                  <tr><td>Kick-off</td><td>09/19</td><td>팀 빌딩, 문제 정의, 협업 도구 세팅</td></tr>
+                  <tr><td>스프린트 1</td><td>09/23~09/30</td><td>초기 기획, WBS, 아키텍처/ERD 초안, POC</td></tr>
+                  <tr><td>스프린트 2</td><td>10/15~10/24</td><td>데이터 수집/전처리, 요구사항 상세, UI 초안</td></tr>
+                  <tr><td>스프린트 3</td><td>10/28~11/01</td><td>인증·냉장고·추천·대시보드 핵심 API 구현</td></tr>
+                  <tr><td>스프린트 4</td><td>11/03~11/07</td><td>통합 테스트, 버그 수정, 쇼츠/영양제/뱃지 추가</td></tr>
+                  <tr><td>스프린트 5</td><td>11/10~11/15</td><td>알림/대회/관리자 대시보드, AWS 배포</td></tr>
+                  <tr><td>마무리</td><td>11/17~11/21</td><td>성능 평가, 산출물 정리, 최종 발표</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="note">스프린트 2에서 POC와 데이터 구조를 재검토하고, 냉장고 재료 + 레시피 추천 + 대시보드 중심 구조로 전환했습니다.</p>
           </div>
         </article>
       </div>
+    </div>
+  </section>
+
+  <!-- ===== Reports ===== -->
+  <section id="reports" class="section section--alt">
+    <div class="container">
+      <div class="sec__head">
+        <h2>reports.library()</h2><p class="sub">분석 보고서 모음</p>
+      </div>
+      <article class="snippet glass mac-card" data-tags="report" data-href="https://github.com/gayeoniee/analysis-reports">
+        <div class="titlebar"><span class="dots"></span></div>
+        <div class="snippet__body">
+          <h3 class="snippet__title">분석 보고서 컬렉션</h3>
+          <p class="one">EDA · 시각화를 정리해 둔 분석 보고서 저장소입니다.</p>
+          <div class="snippet__tags">
+            <span class="tag">Pandas</span><span class="tag">Matplotlib</span>
+            <span class="tag">Reproducibility</span>
+          </div>
+          <div class="snippet__actions">
+            <a class="link" href="https://github.com/gayeoniee/data_anal_rep" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </div>
+        <div class="details">
+          <ul>
+            <li>데이터 클리닝/결측·이상치 처리 흐름 기록</li>
+            <li>핵심 지표 정의, 집계/시각화 템플릿 공유</li>
+            <li>스토리와 노트 정리로 협업 가이드 제공</li>
+          </ul>
+        </div>
+      </article>
+      <article class="snippet glass mac-card" data-tags="ml" data-href="https://github.com/gayeoniee/data_anal_ml">
+        <div class="titlebar"><span class="dots"></span></div>
+        <div class="snippet__body">
+          <h3 class="snippet__title">머신러닝 실험 노트</h3>
+          <p class="one">분류/회귀 모델 베이스라인, 하이퍼파라미터 실험, 실전 노트북을 모은 저장소입니다.</p>
+          <div class="snippet__tags">
+            <span class="tag">scikit-learn</span><span class="tag">XGBoost</span>
+          </div>
+          <div class="snippet__actions">
+            <a class="link" href="https://github.com/gayeoniee/data_anal_ml" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </div>
+        <div class="details">
+          <ul>
+            <li>분류/회귀 Baseline과 교차검증 스크립트</li>
+            <li>Feature Store 연동, 모델 로깅(LogML)</li>
+            <li>실험 로그·리팩토링 가이드 포함</li>
+          </ul>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -576,18 +419,18 @@ top3  = order[:, :3]</code></pre>
   <section id="education" class="section section--alt">
     <div class="container">
       <div class="sec__head">
-        <h2>education.fit()</h2><p class="sub">학습과 환경</p>
+        <h2>education.fit()</h2><p class="sub">학습과 성장 환경</p>
       </div>
       <div class="edu__list">
         <article class="edu glass">
           <div class="edu__time">2024 - 현재</div>
           <div class="edu__title">Seoul Cyber University · Big Data InfoSec</div>
-          <div class="edu__desc">데이터 과목 중심 이수, 학회 운영 및 커리큘럼 기획</div>
+          <div class="edu__desc">데이터 중심 커리큘럼 이수</div>
         </article>
         <article class="edu glass">
           <div class="edu__time">2025</div>
           <div class="edu__title">LG U+ WhyNot Camp 7기 · Cloud & Big Data</div>
-          <div class="edu__desc">클라우드 기반 빅데이터 분석·서비스 개발, 팀 프로젝트 리딩</div>
+          <div class="edu__desc">클라우드 기반 데이터 파이프라인, 팀 프로젝트, 실전 발표</div>
         </article>
       </div>
     </div>
@@ -597,28 +440,16 @@ top3  = order[:, :3]</code></pre>
   <section id="contact" class="section">
     <div class="container">
       <div class="sec__head">
-        <h2>contact.post()</h2><p class="sub">협업을 원하신다면</p>
+        <h2>contact.post()</h2><p class="sub">함께 이야기해 보고 싶다면</p>
       </div>
 
-      <div class="contact-grid">
-        <form class="form glass" onsubmit="event.preventDefault(); alert('메일로 연락주세요: gayeon@example.com');">
-          <div class="form__row">
-            <input type="text" placeholder="Your name" aria-label="Your name" required />
-            <input type="email" placeholder="Your email" aria-label="Your email" required />
-          </div>
-          <textarea placeholder="Project idea, role, timeline..." aria-label="Message" required></textarea>
-          <button class="btn btn--primary" type="submit">Send</button>
-        </form>
-
+      <div class="contact-grid contact-only">
         <div class="contact-cards">
           <a class="contact-card glass" href="mailto:gayeon@example.com">
             <span>Email</span><strong>gayeon@example.com</strong>
           </a>
           <a class="contact-card glass" href="https://github.com/gayeoniee" target="_blank" rel="noreferrer">
             <span>GitHub</span><strong>@gayeoniee</strong>
-          </a>
-          <a class="contact-card glass" href="#" target="_blank" rel="noreferrer">
-            <span>LinkedIn</span><strong>/in/gayeon</strong>
           </a>
         </div>
       </div>
@@ -632,38 +463,6 @@ top3  = order[:, :3]</code></pre>
 
   <!-- ===== Scripts ===== -->
   <script>
-  // ========== [CHG] Theme Toggle 안정화: 전환 순간 강제 리페인트 ==========
-  (function() {
-    const html = document.documentElement;
-    const btn  = document.querySelector('.theme-toggle');
-    const icon = document.getElementById('themeIcon');
-    const saved = localStorage.getItem('theme');
-    if (saved) html.setAttribute('data-theme', saved);
-
-    function syncIcon() {
-      const mode = html.getAttribute('data-theme');
-      icon.textContent = mode === 'light' ? '🌙' : '☀️';
-    }
-    syncIcon();
-
-    btn.addEventListener('click', () => {
-      const cur = html.getAttribute('data-theme');
-      const next = cur === 'light' ? 'dark' : 'light';
-
-      // 전환 시작: theming 클래스 추가
-      html.classList.add('theming');
-      html.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-      syncIcon();
-
-      // 강제 리플로우 + micro delay 후 theming 해제 (backdrop-filter 재합성 안정화)
-      requestAnimationFrame(() => {
-        void document.body.offsetHeight; // 강제 리플로우
-        setTimeout(() => { html.classList.remove('theming'); }, 120);
-      });
-    });
-  })();
-
   // ========== Smooth Scroll for nav links ==========
   document.querySelectorAll('.nav a').forEach(a => {
     a.addEventListener('click', e => {
@@ -693,7 +492,7 @@ top3  = order[:, :3]</code></pre>
     });
   })();
 
-  // ========== Projects: Card click → GitHub, keep details on button ==========
+  // ========== Projects: Card click ==========
   (function() {
     const cards = document.querySelectorAll('.proj__grid .snippet');
     cards.forEach(card => {
@@ -705,19 +504,6 @@ top3  = order[:, :3]</code></pre>
       });
     });
   })();
-
-  // ========== Projects: Toggle details ==========
-  document.querySelectorAll('.view-more').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const details = btn.closest('.snippet').querySelector('.details');
-      details.classList.toggle('open');
-      btn.textContent = details.classList.contains('open') ? '접기' : '자세히 보기';
-    });
-  });
-
-  // ========== Footer year ==========
-  document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
